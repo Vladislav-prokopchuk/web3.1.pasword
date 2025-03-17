@@ -35,21 +35,6 @@ function generatePassword(length, useLowercase, useUppercase, useNumbers, useSym
     return password;
 }
 
-function calculateStrength(password) {
-    let strength = 'Слабкий';
-    let crackTime = 'Менше ніж 1 секунду';
 
-    // Простий підхід для визначення складності
-    const length = password.length;
-    const uniqueChars = new Set(password).size;
-
-    if (length >= 12 && uniqueChars > 8) {
-        strength = 'Сильний';
-        crackTime = 'Багато років';
-    } else if (length >= 8 && uniqueChars > 5) {
-        strength = 'Середній';
-        crackTime = 'Декілька годин';
-    }
-
-    return { strength, crackTime };
+   
 }
