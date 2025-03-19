@@ -1,7 +1,7 @@
 // app.js
 
 document.getElementById('generate').addEventListener('click', function () {
-    const length = document.getElementById('length').value;
+    const length = parseInt(document.getElementById('length').value);
     const useLowercase = document.getElementById('lowercase').checked;
     const useUppercase = document.getElementById('uppercase').checked;
     const useNumbers = document.getElementById('numbers').checked;
@@ -9,12 +9,9 @@ document.getElementById('generate').addEventListener('click', function () {
 
     const password = generatePassword(length, useLowercase, useUppercase, useNumbers, useSymbols);
     document.getElementById('password').value = password;
-
-    const strength = calculateStrength(password);
-    document.getElementById('strength').textContent = `Сила пароля: ${strength.strength}`;
-    document.getElementById('crack-time').textContent = `Час на злам: ${strength.crackTime}`;
 });
 
+// Функція для генерації пароля
 function generatePassword(length, useLowercase, useUppercase, useNumbers, useSymbols) {
     const lowercase = 'abcdefghijklmnopqrstuvwxyz';
     const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -33,8 +30,4 @@ function generatePassword(length, useLowercase, useUppercase, useNumbers, useSym
     }
 
     return password;
-}
-
-
-   
 }
